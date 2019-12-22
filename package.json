@@ -1,0 +1,73 @@
+{
+  "name": "todolist-vue-function-api",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "serve": "vue-cli-service serve",
+    "build": "vue-cli-service build",
+    "lint": "vue-cli-service lint"
+  },
+  "dependencies": {
+    "@vue/composition-api": "^0.3.4",
+    "core-js": "^3.4.3",
+    "register-service-worker": "^1.6.2",
+    "sass": "^1.23.7",
+    "sass-loader": "^8.0.0",
+    "vue": "^2.6.10",
+    "vue-class-component": "^7.0.2",
+    "vue-property-decorator": "^8.3.0"
+  },
+  "devDependencies": {
+    "@vue/cli-plugin-babel": "^4.1.0",
+    "@vue/cli-plugin-eslint": "^4.1.0",
+    "@vue/cli-plugin-pwa": "^4.1.0",
+    "@vue/cli-plugin-typescript": "^4.1.0",
+    "@vue/cli-service": "^4.1.0",
+    "@vue/eslint-config-prettier": "^5.0.0",
+    "@vue/eslint-config-typescript": "^4.0.0",
+    "eslint": "^5.16.0",
+    "eslint-plugin-prettier": "^3.1.1",
+    "eslint-plugin-vue": "^5.0.0",
+    "prettier": "^1.19.1",
+    "typescript": "~3.5.3",
+    "vue-template-compiler": "^2.6.10"
+  },
+  "eslintConfig": {
+    "root": true,
+    "env": {
+      "node": true
+    },
+    "extends": [
+      "plugin:vue/essential",
+      "@vue/prettier",
+      "@vue/typescript"
+    ],
+    "rules": {
+      "no-console": 0
+    },
+    "parserOptions": {
+      "parser": "@typescript-eslint/parser"
+    }
+  },
+  "browserslist": [
+    "> 1%",
+    "last 2 versions"
+  ],
+  "vue": {
+    "pwa": {
+      "name": "Todolist by Vue3.0",
+      "short_name": "清单",
+      "icons": [
+        {
+          "src": "icon.png",
+          "type": "/img/icons/icon.png",
+          "sizes": "192x192"
+        }
+      ],
+      "background_color": "#000000",
+      "theme_color": "#000000",
+      "display": "standalone",
+      "start_url": "index.html"
+    }
+  }
+}
