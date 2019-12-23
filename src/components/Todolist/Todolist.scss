@@ -63,34 +63,78 @@
     .todo-item-list {
       list-style: none;
       width: 100%;
+      box-sizing: border-box;
 
       .todo-item {
+        position: relative;
         width: 100%;
         text-align: left;
-        // padding-left: 10px;
-        height: 50px;
-        font-size: 20px;
+        font-size: 18px;
         color: rgba(255, 255, 255, 0.7);
-        // border-left: 2px solid green;
         margin-bottom: 15px;
-        line-height: 50px;
+        padding: 10px 0 10px 0;
+        line-height: 1.5;
         display: flex;
         align-items: center;
-
-        img {
+        border-left: 4px solid rgba(0, 0, 0, 0);
+        border-radius: 4px;
+        cursor: pointer;
+        .blank {
+          width: 50px;
+        }
+        .icon {
+          height: 100%;
+          img {
+            width: 20px;
+            height: 16.5px;
+            margin: 0 15px;
+            opacity: 0;
+          }
+          .right-un {
+            display: block;
+          }
+          .right-sel {
+            display: none;
+          }
+          &:hover {
+            .right-un {
+              display: none;
+              opacity: 0;
+            }
+            .right-sel {
+              display: block;
+              opacity: 1;
+            }
+          }
+        }
+        .delete {
+          position: absolute;
+          right: 15px;
           width: 30px;
           height: 30px;
-          margin-right: 15px;
-          opacity: 0;
+          display: none;
         }
-
         &:hover {
           background-color: rgba(255, 255, 255, 0.2);
           color: rgba(255, 255, 255, 1);
+          border-left: 4px solid rgba(0, 153, 255, 1);;
+
           img {
             opacity: 1;
           }
+
+          .right-un {
+            display: block;
+          }
+          .right-sel {
+            display: none;
+          }
+          .delete {
+            display: block;
+          }
         }
+
+        
       }
     }
   }

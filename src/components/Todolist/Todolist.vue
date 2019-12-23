@@ -17,23 +17,41 @@
     <div class="list">
       <p>正在进行</p>
       <div class="todo-item-list">
-        <div
-          class="todo-item"
-          v-for="(item, index) in todoList"
-          :key="item.id"
-          @click="finish(item, index)"
-        >
-          <img src="../../assets/finish.png" alt="" srcset="" />
+        <div class="todo-item" v-for="(item, index) in todoList" :key="item.id">
+          <div class="icon">
+            <img class="right-un" src="../../assets/right-un.png" alt="" />
+            <img
+              class="right-sel"
+              @click="finish(item, index)"
+              src="../../assets/right-sel.png"
+            />
+          </div>
           <span>{{ item.title }}</span>
+          <img
+            class="delete"
+            @click="deleteItem('todo', index)"
+            src="../../assets/delete.png"
+            alt=""
+          />
         </div>
       </div>
     </div>
     <div class="list">
       <p>已经完成</p>
       <div class="todo-item-list">
-        <div class="todo-item" v-for="item in completeList" :key="item.id">
-          <img src="../../assets/finish.png" alt="" srcset="" />
+        <div
+          class="todo-item"
+          v-for="(item, index) in completeList"
+          :key="item.id"
+        >
+          <div class="blank" />
           <span>{{ item.title }}</span>
+          <img
+            class="delete"
+            @click="deleteItem('complete', index)"
+            src="../../assets/delete.png"
+            alt=""
+          />
         </div>
       </div>
     </div>
@@ -52,10 +70,7 @@ const setStorage = (key: string, value: any) => {
 }
 const getStorage = (key: string): Array<TodoItem> => {
   const value = localStorage.getItem(key)
-  if (value) {
-    return JSON.parse(value)
-  }
-  return []
+  return value ? JSON.parse(value) : []
 }
 
 export default createComponent({
@@ -90,9 +105,19 @@ export default createComponent({
 
     const finish = (item: TodoItem, index: number) => {
       todoList.splice(index, 1)
-      completeList.push(item)
+      completeList.unshift(item)
       setStorage('todoList', todoList)
       setStorage('completeList', completeList)
+    }
+
+    const deleteItem = (type: string, index: number) => {
+      if (type === 'todo') {
+        todoList.splice(index, 1)
+        setStorage('todoList', todoList)
+      } else {
+        completeList.splice(index, 1)
+        setStorage('completeList', completeList)
+      }
     }
 
     return {
@@ -100,7 +125,8 @@ export default createComponent({
       addTodo,
       todoList,
       completeList,
-      finish
+      finish,
+      deleteItem
     }
   }
 })
