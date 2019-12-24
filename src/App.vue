@@ -28,7 +28,7 @@ ul {
 }
 html {
   height: 100%;
-  background-color: rgba(0, 0, 0, 1);
+  background-color: rgba(68, 52, 83, 0.95);
 }
 * {
   box-sizing: border-box;
